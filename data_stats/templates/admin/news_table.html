@@ -1,0 +1,65 @@
+{% extends "../base.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <!-- Card header -->
+
+            <!-- Light table -->
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" class="sort" data-sort="name">id</th>
+                            <th scope="col" class="sort" data-sort="budget">Title</th>
+                            <th scope="col">Content</th>
+                            <th scope="col">Creator</th>
+                            <th scope="col">Created</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        {% if news %}
+                        {% for new in news %}
+                        <tr>
+                            <th scope="row">
+                                <div class="media align-items-center">
+                                    <span class="name mb-0 text-sm">{{ forloop.counter }}</span>
+                                </div>
+                            </th>
+                            <td>
+                                <span class="status">{{new.title}}</span>
+                            </td>
+                            <td>
+                                <span>{{new.content}}</span>
+                            </td>
+                            <td>
+                                <span>{{new.user_id}}</span>
+                            </td>
+                            <td>
+                                <span>{{new.created_at}}</span>
+                            </td>
+                            
+                            <td>
+                                <div class="d-flex align-items-center">
+                        <a href="/admin/delete-content/{{slug}}/{{new.id}}">
+                        <button class="btn btn-danger">Delete</button>
+                        </a>
+                    </div>
+                        </td>
+                        </tr>
+                        
+                        {% endfor %}
+                    
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
