@@ -1,0 +1,58 @@
+{% extends "users/user_base.html" %}
+{% block content %}
+
+<div style="width: 58rem;">
+
+    <div class="card card-stats">
+    
+        <!-- Card body -->
+        <div class="card-body">
+            <form method="post" action="">
+                {% csrf_token %}
+                {% if messgage %}
+                <h3>{{messages}}</h3>
+                {% endif %}
+                <input name="id" value="{{content.id}}" hidden>
+                <input name="category" value={{slug}}>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Title</label>
+                  <input type="text" name="title" value="{{content.title}}" class="form-control" placeholder="Title" required>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Image Url</label>
+                      <input type="text" name="img_url" value="{{content.img_url}}" class="form-control" placeholder="Image URL" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Content URL</label>
+                      <input type="text" name="content_url" value="{{content.content_url}}" class="form-control" placeholder="Content URL" required>
+                    </div>
+                  </div>
+                </div>
+               
+             
+                <div class="form-group">
+                  <label>Content:</label>
+                  <textarea name="content" class="form-control" id="exampleFormControlTextarea1"
+                   rows="3" required>{{content.content}}</textarea>
+                </div>
+
+                <div class="form-group">
+                  <label>Summary:</label>
+                  <textarea name="summary" class="form-control" id="exampleFormControlTextarea1"
+                   rows="3" required>{{content.summary}}</textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+            
+        </div>
+    </div>
+    </div>
+
+
+{% endblock %}

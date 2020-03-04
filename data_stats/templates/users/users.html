@@ -1,9 +1,9 @@
 {% extends "users/user_base.html" %}
 {% block content %}
 
-
+{{category}}
 <div class="container">
-  <div class="row">
+<div class="row">
 {% for b in business %}
 <div class="col-lg-3 m-2">
 <div class="card" style="width: 18rem;height: 25rem;">
@@ -11,11 +11,38 @@
     <div class="card-body">
       <h5 class="card-title text-uppercase">{{b.title}}</h5>
       <p class="card-text">{{b.content|truncatewords:500 }}</p>
-      <a href="#" class="btn btn-primary">Update</a>
+      <a href="/user/update-post/{{category}}/{{b.id}}" class="btn btn-primary">Update</a>
     </div>
   </div>
   </div>
 {% endfor %}
+
+{% for b in tech %}
+<div class="col-lg-3 m-2">
+<div class="card" style="width: 18rem;height: 25rem;">
+    <img class="card-img-top" src="https://cdn.mos.cms.futurecdn.net/cbBmRGrZuf7s9JMsEtDs5S.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title text-uppercase">{{b.title}}</h5>
+      <p class="card-text">{{b.content|truncatewords:500 }}</p>
+      <a href="/user/update-post/{{category}}/{{b.id}}" class="btn btn-primary">Update</a>
+    </div>
+  </div>
+  </div>
+{% endfor %}
+
+{% for b in political %}
+<div class="col-lg-3 m-2">
+<div class="card" style="width: 18rem;height: 25rem;">
+    <img class="card-img-top" src="https://cdn.mos.cms.futurecdn.net/cbBmRGrZuf7s9JMsEtDs5S.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title text-uppercase">{{b.title}}</h5>
+      <p class="card-text">{{b.content|truncatewords:500 }}</p>
+      <a href="/user/update-post/{{category}}/{{b.id}}" class="btn btn-primary">Update</a>
+    </div>
+  </div>
+  </div>
+{% endfor %}
+
 </div>
 </div>
 

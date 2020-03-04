@@ -16,26 +16,57 @@
                   <label for="exampleFormControlInput1">Title</label>
                   <input type="text" name="title" class="form-control" placeholder="Title" required>
                 </div>
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1">Select Category</label>
-                  <select name="category" class="form-control" id="cate" required>
-                      {% if categories %}
-                      <option selected >Select</option>
-                      {% for category in categories %}
-                    <option value="{{ category.cat_id }}">{{ category.category_name }}</option>
-                  
-                      {% endfor %}
-                      {% endif %}
-                    
-                    
-                  </select>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Image Url</label>
+                      <input type="text" name="img_url" class="form-control" placeholder="Image URL" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Source URL</label>
+                      <input type="text" name="content_url" class="form-control" placeholder="Content URL" required>
+                    </div>
+                  </div>
                 </div>
+               
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect1">Select Category</label>
+                      <select name="category" class="form-control" id="cate" required>
+                          {% if categories %}
+                          
+                        <option value="{{ categories.cat_id }}" selected>{{ categories.category_name }}</option>
+                          {% endif %}
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="exampleFormControlSelect1">Upload Image</label>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" name="image" id="validatedCustomFile" required>
+                      <label class="custom-file-label" for="validatedCustomFile">Upload</label>
+                     
+                    </div>
+                  </div>
+                </div>
+                
            
                 <div class="form-group">
                   <label>Content:</label>
                   <textarea name="content" class="form-control" id="exampleFormControlTextarea1"
                    rows="3" required></textarea>
                 </div>
+
+                <div class="form-group">
+                  <label>Summary:</label>
+                  <textarea name="summary" class="form-control" id="exampleFormControlTextarea1"
+                   rows="3" required></textarea>
+                </div>
+
                 <button type="submit" class="btn btn-success">Submit</button>
               </form>
             

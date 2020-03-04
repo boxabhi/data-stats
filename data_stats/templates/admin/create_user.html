@@ -1,4 +1,4 @@
-{% extends "../base.html" %}
+{% extends "admin/admin_dashboard.html" %}
 {% block content %}
 
 <div class="row">
@@ -55,7 +55,7 @@
                                                         {% if categories %}
                                                         <option selected >Select</option>
                                                         {% for category in categories %}
-                                                        <option value="{{ category.id }}">{{ category.category_name }}</option>
+                                                        <option value="{{ category.cat_id }}">{{ category.category_name }}</option>
                                                         {% endfor %}
                                                         {% endif %}
                     
@@ -87,6 +87,7 @@
                             <th scope="col" class="sort" data-sort="budget">Email</th>
                             <th scope="col">Last login</th>
                             <th scope="col">Created</th>
+                            <th scope="col">Can Post</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -96,7 +97,7 @@
                         <tr>
                             <th scope="row">
                                 <div class="media align-items-center">
-                                    <span class="name mb-0 text-sm">1</span>
+                                    <span class="name mb-0 text-sm">{{forloop.counter}}</span>
                                 </div>
                             </th>
                             <td>
@@ -107,6 +108,9 @@
                             </td>
                             <td>
                                 <span>{{user.date_joined}}</span>
+                            </td>
+                            <td>
+                                {{user.user_can_post}}
                             </td>
                             <td>
                                 <div class="d-flex align-items-center">
